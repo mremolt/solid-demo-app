@@ -1,6 +1,10 @@
-import { render } from "solid-js/web";
+import { render } from 'solid-js/web';
 
-import "./index.css";
-import App from "./App";
+import './index.css';
+import App from './App';
 
-render(() => <App />, document.getElementById("root"));
+if (typeof window !== 'undefined') {
+  import('./pwa');
+}
+
+render(() => <App />, document.getElementById('root'));
