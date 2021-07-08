@@ -1,25 +1,25 @@
-import type { Component } from "solid-js";
+import type { Component } from 'solid-js';
+import { For } from 'solid-js';
 
-import logo from "./logo.svg";
-import styles from "./App.module.css";
+import styles from './App.module.css';
+import { usersResource } from './users.resource';
 
 const App: Component = () => {
+  const [users] = usersResource;
+
   return (
     <div class={styles.App}>
-      <header class={styles.header}>
-        <img src={logo} class={styles.logo} alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          class={styles.link}
-          href="https://github.com/ryansolid/solid"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Solid
-        </a>
-      </header>
+      <h2>Users</h2>
+
+      <ul>
+        <For each={users()}>
+          {(user) => (
+            <li>
+              {user.name} ({user.email})
+            </li>
+          )}
+        </For>
+      </ul>
     </div>
   );
 };
