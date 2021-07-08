@@ -8,6 +8,9 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       manifest: {
+        name: 'Solid Demo App',
+        short_name: 'SolidDemo',
+        theme_color: '#ffffff',
         icons: [
           {
             src: 'pwa-192x192.png', // <== don't add slash, for testing
